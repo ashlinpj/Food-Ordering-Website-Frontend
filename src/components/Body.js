@@ -9,6 +9,8 @@ const Body = () => {
     const [filteredRes, setFilteredRes] = useState([]);
 
     useEffect(() => {
+        console.log("useEffect");
+        
         fetchData();
     }, []);
 
