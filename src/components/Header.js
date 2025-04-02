@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../image_assets/logo.png"; // Import the image
 import { useEffect, useState } from "react";
 //Header Component
@@ -10,9 +11,9 @@ import { useEffect, useState } from "react";
             </div>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/contact">Contact Us</Link></li>
                     <li>Cart</li>
                     <button className="login" onClick={()=>{
                         btnName==="Login"?setBtnName("Logout"):setBtnName("Login");
