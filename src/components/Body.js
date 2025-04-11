@@ -9,7 +9,6 @@ const Body = () => {
     const [filteredRes, setFilteredRes] = useState([]);
 
     useEffect(() => {
-        console.log("useEffect");
         
         fetchData();
     }, []);
@@ -21,7 +20,6 @@ const Body = () => {
         const restaurants = jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         setRes(restaurants);
         setFilteredRes(restaurants);
-        console.log(jsonData);
     };
 
     const handleSearch = () => {
