@@ -18,11 +18,13 @@ const RestaurantMenu = () => {
         return <Shimmer/>;
     }
     const{name,cuisines,costForTwoMessage}=resInfo?.cards[2]?.card?.card?.info;
+   
+    const{cards}=resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR;
+    console.log(cards);
     return (
         <div className="menu">
             <h1>{name}</h1>
-            <h2>{cuisines}</h2>
-            <h2>{costForTwoMessage}</h2>
+            <p>{cuisines.join(",")}-{costForTwoMessage}</p>
             <h2>Menu</h2>
             <ul>
                 <li>Biriyani</li>
@@ -31,6 +33,6 @@ const RestaurantMenu = () => {
             </ul>
         </div>
     );
-    }
+}
 
 export default RestaurantMenu;
