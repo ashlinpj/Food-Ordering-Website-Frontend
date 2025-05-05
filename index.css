@@ -80,6 +80,12 @@
   gap: 20px; /* Adjust gap as needed */
 }
 
+/* Remove underlines from Link components */
+.res-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .body {
   padding: 60px;
 }
