@@ -4,11 +4,18 @@ import{Link} from "react-router-dom";
 import { useState } from "react";
 import useResFetch from "../utils/useResFetch";
 import useSearchRes from "../utils/useSearchRes";
+import useNetworkStatus from "../utils/useNetworkStatus";
 
 //Body component
 const Body = () => {
+    const networkStatus=useNetworkStatus();
    const {res, filteredRes, setFilteredRes} = useResFetch();
    const {searchText, setSearchText, handleSearch} = useSearchRes(res, setFilteredRes);
+      if(networkStatus===false){
+        return(
+            <h1>Looks like you are offline</h1>
+        )
+    }
     return res.length === 0 ? <Shimmer /> : (
         <div className="body">
             <div className="filter-container">
