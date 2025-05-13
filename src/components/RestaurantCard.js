@@ -1,4 +1,5 @@
 import {CDN_URL} from "../utils/constants";
+import ImageWithShimmer from "./ImageWithShimmer";
 
 //styleCards
 const styleCard={
@@ -12,7 +13,7 @@ const RestaurantCard=(props)=>{
     const {deliveryTime}=resData?.info?.sla;
     return(
         <div className="res-card" style={styleCard}>
-            <img className="res-logo" alt="res-logo" src={CDN_URL+cloudinaryImageId}/>
+            <ImageWithShimmer imageId={cloudinaryImageId} alt={name} />
             <h3>{name}</h3>
             <h4>{areaName}</h4>
             <h4>{cuisines.join(",")}</h4>
