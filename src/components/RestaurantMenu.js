@@ -10,9 +10,7 @@ const RestaurantMenu = () => {
         return <Shimmer/>;
     }
     const{name,cuisines,costForTwoMessage}=resMenuInfo?.cards[2]?.card?.card?.info;
-   
     const{cards}=resMenuInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR;
-    console.log(cards);
     return (
         <div className="menu">
             <h1>{name}</h1>
