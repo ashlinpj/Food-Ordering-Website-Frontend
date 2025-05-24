@@ -32,4 +32,19 @@ const RestaurantCard=(props)=>{
     )
 }
 
+
+export const openRes=(RestaurantCard)=>{
+    return (props)=>{
+        console.log(props);
+        
+        return(
+            <div className="relative">
+                <RestaurantCard {...props}/>
+                <label className="bg-green-500 text-white px-2 py-1 rounded-md text-sm font-medium absolute top-4 right-4 shadow-md">Open</label>
+            </div>
+           
+        )
+    }
+}
+
 export default RestaurantCard;
