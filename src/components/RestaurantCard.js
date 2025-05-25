@@ -34,9 +34,7 @@ const RestaurantCard=(props)=>{
 
 
 export const openRes=(RestaurantCard)=>{
-    return (props)=>{
-        console.log(props);
-        
+    return (props)=>{   
         return(
             <div className="relative">
                 <RestaurantCard {...props}/>
