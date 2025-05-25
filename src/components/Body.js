@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard,{openRes} from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
 import { useState } from "react";
@@ -6,12 +6,13 @@ import useResFetch from "../utils/useResFetch";
 import useSearchRes from "../utils/useSearchRes";
 import useNetworkStatus from "../utils/useNetworkStatus";
 
+
 //Body component
 const Body = () => {
     const networkStatus = useNetworkStatus();
     const {res, filteredRes, setFilteredRes} = useResFetch();
     const {searchText, setSearchText, handleSearch} = useSearchRes(res, setFilteredRes);
-
+    const LiveRes=openRes(RestaurantCard);
     if(networkStatus === false) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -62,7 +63,10 @@ const Body = () => {
                         key={restaurant.info.id}
                         className="block transition-transform duration-300 hover:scale-105"
                     >
-                        <RestaurantCard resData={restaurant}/>
+                        {/* <RestaurantCard resData={restaurant}/> */}
+                        {
+                            restaurant.info.isOpen?<LiveRes resData={restaurant}/>:<RestaurantCard resData={restaurant}/>
+                        }
                     </Link>
                 ))}
             </div>
