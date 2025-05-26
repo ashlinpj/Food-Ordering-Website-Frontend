@@ -1,17 +1,11 @@
 import { Link } from "react-router-dom";
 import logo from "../../image_assets/logo.png"; // Import the image
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import useNetworkStatus from "../utils/useNetworkStatus";
 //Header Component
 const Header = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const network = useNetworkStatus();
-
-    const handleSearch = (e) => {
-        e.preventDefault();
-        // Add your search logic here
-        console.log("Searching for:", searchQuery);
-    };
 
     return (
         <div className="bg-gradient-to-r from-green-400 to-green-600 shadow-xl sticky top-0 z-50">

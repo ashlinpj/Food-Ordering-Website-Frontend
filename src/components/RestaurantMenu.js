@@ -1,11 +1,12 @@
 import useResMenuFetch from "../utils/useResMenuFetch";
 import Shimmer from "./Shimmer";
 import ResCategory from "./ResCategory";
-
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 const RestaurantMenu = () => {
     const {resId}=useParams();
     const resMenuInfo=useResMenuFetch(resId);
+    const [showItem,setShowItem]=useState(null);
     if(resMenuInfo===null){
         return <Shimmer/>;
     }
@@ -20,7 +21,7 @@ const RestaurantMenu = () => {
         <div className="text-center">
             <h1 className="font-bold my-6 text-2xl">{name}</h1>
             <p className="font-bold text-lg">{cuisines.join(",")}-{costForTwoMessage}</p>
-            {categories.map((category)=><ResCategory key={category?.card?.card.categoryId} data={category?.card?.card}/>)}
+            {categories.map((category,index)=><ResCategory key={category?.card?.card.categoryId} data={category?.card?.card} item={showItem===index && true} setShowItem={setShowItem} index={index}/>)}
         </div>
     );
 }
