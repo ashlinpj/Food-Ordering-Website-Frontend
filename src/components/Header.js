@@ -2,10 +2,14 @@ import { Link } from "react-router-dom";
 import logo from "../../image_assets/logo.png"; // Import the image
 import { useEffect, useState} from "react";
 import useNetworkStatus from "../utils/useNetworkStatus";
+import { useSelector } from "react-redux";
 //Header Component
 const Header = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const network = useNetworkStatus();
+
+    // subscribing the store using a Selector
+    const cartItems=useSelector((store)=>store.cart.items);
 
     return (
         <div className="bg-gradient-to-r from-green-400 to-green-600 shadow-xl sticky top-0 z-50">
@@ -39,11 +43,13 @@ const Header = () => {
                                     Contact Us
                                 </Link>
                             </li>
+
                             <li className="bg-white text-green-600 px-4 py-2 rounded-full font-medium hover:bg-green-50 transition-all duration-300 cursor-pointer flex items-center gap-2 hover:shadow-lg hover:scale-105">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
-                                Cart
+                                    <Link to="/cart">Cart ({cartItems.length})</Link>
+                                
                             </li>
                         </ul>
                     </div>
