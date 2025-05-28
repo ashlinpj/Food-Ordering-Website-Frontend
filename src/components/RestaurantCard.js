@@ -1,6 +1,5 @@
 import {CDN_URL} from "../utils/constants";
 import ImageWithShimmer from "./ImageWithShimmer";
-
 //styleCards
 const styleCard={
     backgroundColor:"#ebedeb"

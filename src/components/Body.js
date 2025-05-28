@@ -1,11 +1,9 @@
 import RestaurantCard,{openRes} from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
-import { useState } from "react";
 import useResFetch from "../utils/useResFetch";
 import useSearchRes from "../utils/useSearchRes";
 import useNetworkStatus from "../utils/useNetworkStatus";
-
 
 //Body component
 const Body = () => {
